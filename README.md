@@ -1,73 +1,139 @@
-# AI-Powered Notes Management System  
-## (Emerging Tools and Technologies Project)
+# 📝 TakeNotes – Smart Note Taking App
+
+A full-stack note-taking web application built using modern web technologies. This project allows users to create, organize, and manage notes efficiently, along with some smart features like AI assistance and real-time updates.
 
 ---
 
-## 📌 Project Overview
+## 🚀 Features
 
-This project is developed as part of the **Emerging Tools and Technologies Lab**.  
-It is a modern **Notes Management System integrated with AI capabilities**.
+### ✍️ Note Editor
 
-The application allows users to create, manage, and organize notes efficiently, while also leveraging **Artificial Intelligence** for smart assistance.
+- Create and edit notes using a markdown editor
+- Supports basic formatting (bold, italic, headings, lists, etc.)
+- Live preview mode
+- Auto-save functionality
 
----
+### 📂 Note Organization
 
-## 🎯 Objectives
+- Create and manage categories
+- Move notes between categories
+- Search and filter notes
 
-- To understand integration of **AI (LLM)** in real-world applications  
-- To implement a **modern web-based system** using current technologies  
-- To explore **cloud-ready architectures and DevOps concepts**  
-- To develop a user-friendly and interactive application  
+### ⭐ Additional Features
 
----
+- Mark notes as favorites
+- Trash system with restore option
+- Permanent delete functionality
 
-## ✨ Features
+### 🔄 Real-Time Updates
 
-### 📝 Notes Management
-- Create, edit, and delete notes  
-- Organize notes efficiently  
-- Simple and intuitive UI  
+- Notes sync across tabs and devices
+- Automatic updates using backend services
 
-### 🤖 AI Integration
-- Generate intelligent responses using LLM  
-- Assist users in understanding and summarizing content  
-- Smart interaction with user queries  
+### 🤖 AI Features
 
-### 🔄 Real-Time Behavior
-- Dynamic updates  
-- Smooth user interaction  
+- Summarize notes
+- Rephrase content
+- Translate text
+- Suggest tags
 
 ### 🎨 User Interface
-- Clean and responsive design  
-- Easy navigation  
+
+- Clean and responsive design
+- Works on mobile and desktop
+- Light/Dark mode support
+
+### 🔐 Authentication
+
+- User signup and login
+- Secure data handling
+- Password reset functionality
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
-- **Frontend:** Next.js, React  
-- **Backend:** Supabase (Database & Auth)  
-- **AI:** Large Language Model (LLM Integration)  
-- **Styling:** Tailwind CSS  
-- **Version Control:** Git & GitHub  
+### Frontend
+
+- Next.js
+- React
+- Tailwind CSS
+
+### Backend
+
+- Supabase (Database, Authentication, Realtime)
+
+### AI Integration
+
+- Google Gemini API
+
+### Other Tools
+
+- Zustand (State Management)
+- React Hook Form
 
 ---
 
-## 🧠 Concepts Covered
+## 📦 Getting Started
 
-This project demonstrates:
+### Prerequisites
 
-- Artificial Intelligence (LLM Integration)  
-- Cloud Computing (Backend services using Supabase)  
-- DevOps (Version control and deployment readiness)  
-- Full Stack Development  
+- Node.js (v18 or above)
+- npm or yarn
+- Supabase account
+- Google Gemini API key
 
----
+### Installation
 
-## ⚙️ How to Run (Optional)
+1. Clone the repository
 
-```bash
-git clone https://github.com/kapoor035/Take_Notes.git
-cd Take_Notes
+   ```bash
+   git clone <your-repo-link>
+
+   2.	Navigate to the project folder
+   ```
+
+cd TakeNotes
+
+    3.	Install dependencies
+
 npm install
+
+    4.	Create a .env.local file and add:
+
+NEXT_PUBLIC_SUPABASE_URL=your_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key
+GEMINI_API_KEY=your_api_key
+
+    5.	Run the development server
+
 npm run dev
+
+⸻
+
+🗄️ Database Overview
+• Notes stored with categories
+• User-based access control
+• Basic AI interaction tracking
+
+⸻
+
+📌 Project Purpose
+
+This project was developed as part of learning full-stack web development. It focuses on integrating frontend, backend, and basic AI features into a single application.
+
+⸻
+
+📈 Future Improvements
+• Enhanced collaboration features
+• More AI-based tools
+• UI/UX improvements
+• Performance optimization
+
+⸻
+
+📄 License
+
+This project is for educational purposes.
+
+---

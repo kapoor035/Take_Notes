@@ -54,13 +54,13 @@ export function AppSidebar({
   user,
   onCreateCategory,
 }: AppSidebarProps) {
-  const [isAddingCategory, setIsAddingCategory] = useState(false);
-  const [categoryInput, setCategoryInput] = useState("");
+  const [isCreatingCategory, setIsCreatingCategory] = useState(false);
+  const [newCategoryName, setNewCategoryName] = useState("");
 
   const { createNote, notes } = useNotesStore();
   const router = useRouter();
 
-  const handleLogout = async () => {
+  const handleSignOut = async () => {
     try {
       const res = await fetch("/api/auth/signout", { method: "POST" });
       if (res.ok) {
@@ -73,24 +73,24 @@ export function AppSidebar({
     }
   };
 
-  const handleCreateNote = () => {
+  const handleNewNote = () => {
     createNote();
   };
 
-  const handleAddCategory = async () => {
-    if (categoryInput.trim()) {
-      onCreateCategory(categoryInput.trim());
-      setCategoryInput("");
-      setIsAddingCategory(false);
+  const handleCreateCategory = async () => {
+    if (newCategoryName.trim()) {
+      onCreateCategory(newCategoryName.trim());
+      setNewCategoryName("");
+      setIsCreatingCategory(false);
     }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
-      handleAddCategory();
+      handleCreateCategory();
     } else if (e.key === "Escape") {
-      setIsAddingCategory(false);
-      setCategoryInput("");
+      setIsCreatingCategory(false);
+      setNewCategoryName("");
     }
   };
 
@@ -127,9 +127,9 @@ export function AppSidebar({
           </span>
         </div>
 
-        <Button onClick={handleCreateNote} className="w-full">
+        <Button onClick={handleNewNote} className="w-full">
           <Plus className="h-4 w-4 mr-2" />
-          Create Note
+          New Note
         </Button>
       </SidebarHeader>
 
@@ -165,7 +165,7 @@ export function AppSidebar({
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setIsAddingCategory(true)}
+              onClick={() => setIsCreatingCategory(true)}
               className="h-6 w-6 p-0 opacity-60 hover:opacity-100"
             >
               <Plus className="h-4 w-4" />
@@ -175,17 +175,17 @@ export function AppSidebar({
           <SidebarGroupContent className="overflow-hidden">
             <div className="overflow-y-auto max-h-[300px] scrollbar-none">
               <SidebarMenu>
-                {isAddingCategory && (
+                {isCreatingCategory && (
                   <SidebarMenuItem>
                     <div className="px-2 py-1">
                       <Input
-                        placeholder="Enter category name..."
-                        value={categoryInput}
-                        onChange={(e) => setCategoryInput(e.target.value)}
+                        placeholder="Category name..."
+                        value={newCategoryName}
+                        onChange={(e) => setNewCategoryName(e.target.value)}
                         onKeyDown={handleKeyDown}
                         onBlur={() => {
-                          if (!categoryInput.trim()) {
-                            setIsAddingCategory(false);
+                          if (!newCategoryName.trim()) {
+                            setIsCreatingCategory(false);
                           }
                         }}
                         className="h-7 text-xs"
@@ -217,7 +217,7 @@ export function AppSidebar({
                   );
                 })}
 
-                {categories.length === 0 && !isAddingCategory && (
+                {categories.length === 0 && !isCreatingCategory && (
                   <SidebarMenuItem>
                     <div className="px-2 py-4 text-center text-muted-foreground">
                       <Folder className="h-6 w-6 mx-auto mb-2 opacity-50" />
@@ -225,7 +225,7 @@ export function AppSidebar({
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => setIsAddingCategory(true)}
+                        onClick={() => setIsCreatingCategory(true)}
                         className="mt-2 h-6 text-xs"
                       >
                         Create your first category
@@ -268,7 +268,7 @@ export function AppSidebar({
               <Settings className="h-4 w-4 mr-2" />
               Settings
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={handleLogout}>
+            <DropdownMenuItem onClick={handleSignOut}>
               <LogOut className="h-4 w-4 mr-2" />
               Sign Out
             </DropdownMenuItem>

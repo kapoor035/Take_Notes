@@ -1,17 +1,14 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter, Geist } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { Toaster } from "../components/ui/sonner";
-import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://takenotes.vercel.app"),
+  metadataBase: new URL("https://takenotesai.vercel.app"),
   title: "TakeNote – AI-Powered Note Taking App",
   description:
     "TakeNote is a modern, AI-powered note-taking application featuring real-time sync, markdown support, and intelligent organization. Capture, organize, and access your notes anywhere.",
@@ -32,7 +29,7 @@ export const metadata: Metadata = {
     title: "TakeNote – AI-Powered Note Taking App",
     description:
       "A modern note-taking app with AI features, real-time sync, and markdown support.",
-    url: "https://takenotes.vercel.app",
+    url: "https://takenotesai.vercel.app",
     siteName: "TakeNotes",
     images: [
       {
@@ -60,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
